@@ -1,0 +1,10 @@
+ write down bugs if found:
+
+
+1.Responsive Design Issue: When I accessed the website on my mobile device, I noticed that the layout breaks and the navigation menu overlaps with the content, making it difficult to navigate. This is a major usability issue that needs to be fixed.
+
+2.Missing Alt Text for Images: Upon inspecting the website's images, I found that some of them lack alt text, which is essential for accessibility and search engine optimization (SEO). This oversight can negatively impact the website's visibility and user experience.
+
+3.Slow Page Load Time: I timed the website's page load time, and it took around 5-7 seconds to fully load. This can lead to a high bounce rate and negatively impact user experience. Optimizing images and compressing files could significantly improve page load time.
+
+4.Not able to Sign-Up with mobile number - If user is given registered mobile number and correct then user unable to login.
