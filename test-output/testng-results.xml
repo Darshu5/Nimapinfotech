@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-08T15:33:17Z" name="Suite" finished-at="2024-07-08T15:37:05Z" duration-ms="227684">
+    <groups>
+    </groups>
+    <test started-at="2024-07-08T15:33:17Z" name="Test" finished-at="2024-07-08T15:37:05Z" duration-ms="227684">
+      <class name="assignment.Task">
+        <test-method signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:assignment.Task@3561c410]" started-at="2024-07-08T21:03:17Z" name="Login" data-provider="loginData" finished-at="2024-07-08T21:07:05Z" duration-ms="227631" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[nakadedarshana28@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Darshana@2001]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Ramesh]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+      </class> <!-- assignment.Task -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
