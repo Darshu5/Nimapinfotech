@@ -1,0 +1,230 @@
+Field Validations for Each Module
+
+1. Sign Up
+
+Feature: Username Validation
+
+  Scenario: Presence Check
+    Given I am on the Sign Up page
+    When I leave the Username field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Length Check - Too Short
+    Given I am on the Sign Up page
+    When I enter a Username with less than 3 characters
+    And I try to submit the form
+    Then I should see an error message indicating the Username must be between 3 to 20 characters
+
+  Scenario: Length Check - Too Long
+    Given I am on the Sign Up page
+    When I enter a Username with more than 20 characters
+    And I try to submit the form
+    Then I should see an error message indicating the Username must be between 3 to 20 characters
+
+  Scenario: Character Check - Invalid Characters
+    Given I am on the Sign Up page
+    When I enter a Username with invalid characters
+    And I try to submit the form
+    Then I should see an error message indicating the Username can only contain alphanumeric characters
+
+  Scenario: Valid Username
+    Given I am on the Sign Up page
+    When I enter a valid Username
+    And I try to submit the form
+    Then I should not see any error messages for the Username field
+
+Feature: Email Validation
+
+  Scenario: Presence Check
+    Given I am on the Sign Up page
+    When I leave the Email field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Format Check - Invalid Email
+    Given I am on the Sign Up page
+    When I enter an invalid email format
+    And I try to submit the form
+    Then I should see an error message indicating the email format is invalid
+
+  Scenario: Uniqueness Check - Already Registered
+    Given I am on the Sign Up page
+    When I enter an email that is already registered
+    And I try to submit the form
+    Then I should see an error message indicating the email is already registered
+
+  Scenario: Valid Email
+    Given I am on the Sign Up page
+    When I enter a valid and unique email
+    And I try to submit the form
+    Then I should not see any error messages for the email field
+
+Feature: Password Validation
+
+  Scenario: Presence Check
+    Given I am on the Sign Up page
+    When I leave the Password field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Length Check - Too Short
+    Given I am on the Sign Up page
+    When I enter a Password with less than 8 characters
+    And I try to submit the form
+    Then I should see an error message indicating the Password must be at least 8 characters long
+
+  Scenario: Complexity Check - No Uppercase Letters
+    Given I am on the Sign Up page
+    When I enter a Password without uppercase letters
+    And I try to submit the form
+    Then I should see an error message indicating the Password must contain a mix of uppercase letters, lowercase letters, numbers, and special characters
+
+  Scenario: Complexity Check - No Lowercase Letters
+    Given I am on the Sign Up page
+    When I enter a Password without lowercase letters
+    And I try to submit the form
+    Then I should see an error message indicating the Password must contain a mix of uppercase letters, lowercase letters, numbers, and special characters
+
+  Scenario: Complexity Check - No Numbers
+    Given I am on the Sign Up page
+    When I enter a Password without numbers
+    And I try to submit the form
+    Then I should see an error message indicating the Password must contain a mix of uppercase letters, lowercase letters, numbers, and special characters
+
+  Scenario: Complexity Check - No Special Characters
+    Given I am on the Sign Up page
+    When I enter a Password without special characters
+    And I try to submit the form
+    Then I should see an error message indicating the Password must contain a mix of uppercase letters, lowercase letters, numbers, and special characters
+
+  Scenario: Valid Password
+    Given I am on the Sign Up page
+    When I enter a valid Password
+    And I try to submit the form
+    Then I should not see any error messages for the Password field
+
+Feature: Confirm Password Validation
+
+  Scenario: Presence Check
+    Given I am on the Sign Up page
+    When I leave the Confirm Password field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Match Check - Mismatched Passwords
+    Given I am on the Sign Up page
+    When I enter a Password
+    And I enter a different Confirm Password
+    And I try to submit the form
+    Then I should see an error message indicating the passwords do not match
+
+  Scenario: Valid Confirm Password
+    Given I am on the Sign Up page
+    When I enter a Password
+    And I enter the same Confirm Password
+    And I try to submit the form
+    Then I should not see any error messages for the Confirm Password field
+
+2.Forgot Password
+
+  Scenario: Presence Check for Email Field
+    Given I am on the Forgot Password page
+    When I leave the Email field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Format Check for Email Field
+    Given I am on the Forgot Password page
+    When I enter an invalid email format
+    And I try to submit the form
+    Then I should see an error message indicating the email format is invalid
+
+  Scenario: Registration Check for Email Field
+    Given I am on the Forgot Password page
+    When I enter an unregistered email
+    And I try to submit the form
+    Then I should see an error message indicating the email is not registered
+
+  Scenario: Valid Email for Forgot Password
+    Given I am on the Forgot Password page
+    When I enter a registered email
+    And I try to submit the form
+    Then I should see a message indicating a reset link has been sent
+
+3.Sign in with OTP
+
+  Scenario: Presence Check for Phone Number or Email Field
+    Given I am on the Sign in with OTP page
+    When I leave the Phone Number or Email field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Format Check for Phone Number or Email Field
+    Given I am on the Sign in with OTP page
+    When I enter an invalid phone number
+    And I try to submit the form
+    Then I should see an error message indicating the phone number format is invalid
+
+  Scenario: Format Check for Email Field
+    Given I am on the Sign in with OTP page
+    When I enter an invalid email format
+    And I try to submit the form
+    Then I should see an error message indicating the email format is invalid
+
+  Scenario: Registration Check for Phone Number or Email Field
+    Given I am on the Sign in with OTP page
+    When I enter an unregistered phone number or email
+    And I try to submit the form
+    Then I should see an error message indicating the phone number or email is not registered
+
+  Scenario: Presence Check for OTP Field
+    Given I am on the OTP entry page
+    When I leave the OTP field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Format Check for OTP Field
+    Given I am on the OTP entry page
+    When I enter an invalid OTP format
+    And I try to submit the form
+    Then I should see an error message indicating the OTP format is invalid
+
+  Scenario: Match Check for OTP Field
+    Given I am on the OTP entry page
+    When I enter a valid OTP
+    And I try to submit the form
+    Then I should be successfully logged in
+
+4.Feature: Login
+
+  Scenario: Presence Check for Username/Email Field
+    Given I am on the Login page
+    When I leave the Username/Email field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Format Check for Username/Email Field
+    Given I am on the Login page
+    When I enter an invalid email format in the Username/Email field
+    And I try to submit the form
+    Then I should see an error message indicating the email format is invalid
+
+  Scenario: Presence Check for Password Field
+    Given I am on the Login page
+    When I leave the Password field empty
+    And I try to submit the form
+    Then I should see an error message indicating the field cannot be empty
+
+  Scenario: Match Check for Credentials
+    Given I am on the Login page
+    When I enter a valid Username/Email and Password
+    And I try to submit the form
+    Then I should be successfully logged in
+
+  Scenario: Invalid Credentials
+    Given I am on the Login page
+    When I enter an invalid Username/Email and Password
+    And I try to submit the form
+    Then I should see an error message indicating invalid credentials
+
